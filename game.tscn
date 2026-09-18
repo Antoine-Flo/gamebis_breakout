@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://qtx1dah0aygo"]
+
+[ext_resource type="Script" uid="uid://bmhi7hpfd8w8x" path="res://game.gd" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://c54atpjxc1bj4" path="res://Player/player.tscn" id="1_feb5d"]
+[ext_resource type="PackedScene" uid="uid://ceclehtoul73n" path="res://Environment/wall.tscn" id="2_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://drusiy482ckj7" path="res://Ball/ball.tscn" id="3_7jktm"]
+
+[node name="Game" type="Node2D" unique_id=579378250]
+script = ExtResource("1_fc0e3")
+
+[node name="Player" parent="." unique_id=894211559 instance=ExtResource("1_feb5d")]
+position = Vector2(960, 1020)
+
+[node name="Terrain" type="Node2D" parent="." unique_id=2109803629]
+
+[node name="Wall" parent="Terrain" unique_id=1042554531 instance=ExtResource("2_fc0e3")]
+position = Vector2(955, -10)
+scale = Vector2(1.795, 1)
+
+[node name="Wall3" parent="Terrain" unique_id=1064644445 instance=ExtResource("2_fc0e3")]
+position = Vector2(-10, 535)
+rotation = 1.5707964
+
+[node name="Wall4" parent="Terrain" unique_id=2044090781 instance=ExtResource("2_fc0e3")]
+position = Vector2(1930, 537)
+rotation = 1.5707964
+
+[node name="Ball" parent="." unique_id=1475457921 instance=ExtResource("3_7jktm")]
+position = Vector2(962, 989)
+collision_layer = 4
+collision_mask = 3

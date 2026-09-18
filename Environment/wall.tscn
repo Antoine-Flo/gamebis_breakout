@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ceclehtoul73n"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x8fbi"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccrme"]
+size = Vector2(1080, 20)
+
+[sub_resource type="Gradient" id="Gradient_cdv7o"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4mkqk"]
+gradient = SubResource("Gradient_cdv7o")
+width = 1080
+height = 20
+
+[node name="Wall" type="StaticBody2D" unique_id=69050372]
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_x8fbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2115659552]
+shape = SubResource("RectangleShape2D_ccrme")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=984256514]
+visible = false
+texture = SubResource("GradientTexture2D_4mkqk")
