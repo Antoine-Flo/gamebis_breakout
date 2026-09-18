@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://qtx1dah0aygo"]
+
+[ext_resource type="PackedScene" uid="uid://ceclehtoul73n" path="res://Prefabs/wall.tscn" id="1_j2wod"]
+[ext_resource type="Script" uid="uid://j24280klxll8" path="res://Scripts/Barre.gd" id="2_v1qfn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fih1l"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dwrc3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dwrc3"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6snss"]
+
+[node name="Node2D" type="Node2D" unique_id=579378250]
+
+[node name="Terrain" type="Node2D" parent="." unique_id=2109803629]
+
+[node name="Wall" parent="Terrain" unique_id=1042554531 instance=ExtResource("1_j2wod")]
+position = Vector2(960, 20)
+
+[node name="Deathwall" parent="Terrain" unique_id=1714193803 instance=ExtResource("1_j2wod")]
+position = Vector2(960, 1100)
+
+[node name="Wall3" parent="Terrain" unique_id=1064644445 instance=ExtResource("1_j2wod")]
+position = Vector2(20, 540)
+rotation = 1.5707964
+scale = Vector2(1080, 40)
+
+[node name="Wall4" parent="Terrain" unique_id=2044090781 instance=ExtResource("1_j2wod")]
+position = Vector2(1900, 540)
+rotation = 1.5707964
+scale = Vector2(1080, 40)
+
+[node name="Player" type="Node2D" parent="." unique_id=936350090]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Player" unique_id=81094706]
+position = Vector2(960, 1020)
+scale = Vector2(160, 50)
+motion_mode = 1
+script = ExtResource("2_v1qfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D" unique_id=573250342]
+scale = Vector2(0.05, 0.05)
+shape = SubResource("RectangleShape2D_fih1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/CharacterBody2D" unique_id=1696232046]
+scale = Vector2(1, 1.0000001)
+texture = SubResource("PlaceholderTexture2D_dwrc3")
+
+[node name="Ball" type="Node2D" parent="." unique_id=2132360355]
+position = Vector2(976, 556)
+scale = Vector2(50, 50)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Ball" unique_id=27349275]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball/RigidBody2D" unique_id=1280194858]
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CircleShape2D_dwrc3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball" unique_id=1177701837]
+texture = SubResource("PlaceholderTexture2D_6snss")
