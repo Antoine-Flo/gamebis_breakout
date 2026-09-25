@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c54atpjxc1bj4"]
+
+[ext_resource type="Script" uid="uid://j24280klxll8" path="res://Paddle/paddle.gd" id="1_l8h54"]
+[ext_resource type="Texture2D" uid="uid://b43hp5d8okd5a" path="res://Assets/Barre1_normal.png" id="2_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://cdb4yilrvnlgt" path="res://Assets/Barre2_bounce.png" id="3_welph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fih1l"]
+size = Vector2(200, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mkqk"]
+size = Vector2(199, 7)
+
+[node name="Paddle" type="CharacterBody2D" unique_id=894211559]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_l8h54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1132053830]
+shape = SubResource("RectangleShape2D_fih1l")
+
+[node name="Normal" type="Sprite2D" parent="." unique_id=68921801]
+texture_filter = 1
+position = Vector2(0, -7.6293945e-06)
+scale = Vector2(1, 1.1000006)
+texture = ExtResource("2_4ntmi")
+
+[node name="Bounce" type="Sprite2D" parent="." unique_id=572212173]
+visible = false
+texture_filter = 1
+texture = ExtResource("3_welph")
+
+[node name="BounceEffectHitBox" type="Area2D" parent="." unique_id=1854141473]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceEffectHitBox" unique_id=2089148283]
+position = Vector2(-0.5, -10.5)
+shape = SubResource("RectangleShape2D_4mkqk")
+
+[node name="Timer" type="Timer" parent="." unique_id=2084035547]
+wait_time = 0.2

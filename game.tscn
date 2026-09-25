@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://qtx1dah0aygo"]
 
 [ext_resource type="Script" uid="uid://bmhi7hpfd8w8x" path="res://game.gd" id="1_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://c54atpjxc1bj4" path="res://Player/player.tscn" id="1_feb5d"]
+[ext_resource type="PackedScene" uid="uid://c54atpjxc1bj4" path="res://Paddle/paddle.tscn" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://ceclehtoul73n" path="res://Environment/wall.tscn" id="2_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://drusiy482ckj7" path="res://Ball/ball.tscn" id="3_7jktm"]
 [ext_resource type="Texture2D" uid="uid://c7ii4w5jh8dyc" path="res://Assets/fond.png" id="5_7jktm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mkqk"]
+size = Vector2(1066, 67)
 
 [node name="Game" type="Node2D" unique_id=579378250]
 script = ExtResource("1_fc0e3")
@@ -14,7 +17,7 @@ texture_filter = 1
 position = Vector2(505, 480)
 texture = ExtResource("5_7jktm")
 
-[node name="Player" parent="." unique_id=894211559 instance=ExtResource("1_feb5d")]
+[node name="Paddle" parent="." unique_id=894211559 instance=ExtResource("1_feb5d")]
 position = Vector2(500, 909)
 
 [node name="Terrain" type="Node2D" parent="." unique_id=2109803629]
@@ -31,7 +34,15 @@ rotation = 1.5707964
 position = Vector2(1007, 525)
 rotation = 1.5707964
 
-[node name="Ball" parent="." unique_id=1475457921 instance=ExtResource("3_7jktm")]
-position = Vector2(508, 874)
+[node name="DeathZone" type="Area2D" parent="Terrain" unique_id=198229383]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/DeathZone" unique_id=96090294]
+position = Vector2(499, 972.5)
+shape = SubResource("RectangleShape2D_4mkqk")
+
+[node name="Ball" parent="." unique_id=1475457921 node_paths=PackedStringArray("paddle") instance=ExtResource("3_7jktm")]
+position = Vector2(499, 878)
 collision_layer = 4
 collision_mask = 3
+paddle = NodePath("../Paddle")

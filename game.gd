@@ -1,12 +1,15 @@
 extends Node2D
 
-@onready var player: CharacterBody2D = $Player
 @onready var ball: CharacterBody2D = $Ball
+@onready var death_zone: Area2D = $Terrain/DeathZone
 
 func _ready() -> void:
-	ball.reparent(player)
+	death_zone.body_entered.connect(death)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_select") or event.is_action_pressed("click"):
-		ball.reparent(self)
 		ball.launch()
+		
+func death(body: Node2D) -> void:
+	if body is Ball:
+		body.die()
