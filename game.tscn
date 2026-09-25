@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://qtx1dah0aygo"]
+[gd_scene format=4 uid="uid://qtx1dah0aygo"]
 
 [ext_resource type="Script" uid="uid://bmhi7hpfd8w8x" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://c54atpjxc1bj4" path="res://Paddle/paddle.tscn" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://ceclehtoul73n" path="res://Environment/wall.tscn" id="2_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://drusiy482ckj7" path="res://Ball/ball.tscn" id="3_7jktm"]
 [ext_resource type="Texture2D" uid="uid://c7ii4w5jh8dyc" path="res://Assets/fond.png" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://snclv5jun08d" path="res://Environment/Bricks.tscn" id="6_ryrav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mkqk"]
 size = Vector2(1066, 67)
@@ -27,11 +28,11 @@ position = Vector2(457, 11)
 scale = Vector2(1.795, 1)
 
 [node name="Wall3" parent="Terrain" unique_id=1064644445 instance=ExtResource("2_fc0e3")]
-position = Vector2(-4, 532)
+position = Vector2(14, 532)
 rotation = 1.5707964
 
 [node name="Wall4" parent="Terrain" unique_id=2044090781 instance=ExtResource("2_fc0e3")]
-position = Vector2(1007, 525)
+position = Vector2(994, 525)
 rotation = 1.5707964
 
 [node name="DeathZone" type="Area2D" parent="Terrain" unique_id=198229383]
@@ -46,3 +47,7 @@ position = Vector2(499, 878)
 collision_layer = 4
 collision_mask = 3
 paddle = NodePath("../Paddle")
+
+[node name="Bricks" parent="." unique_id=10419791 instance=ExtResource("6_ryrav")]
+position = Vector2(24, 0)
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAABAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAIAAAAAAAAAAAANAAIAAAAAAAAAAAAMAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAA=")
