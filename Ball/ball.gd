@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 @export var paddle: Paddle
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 var ball_speed = 700
 var stick_to_paddle = true
 const offset =  Vector2(0, -30)
@@ -11,6 +13,7 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	
 	if collision:
+		audio_stream_player.play(0.74)
 		var collider = collision.get_collider()
 		velocity = velocity.bounce(collision.get_normal())
 	

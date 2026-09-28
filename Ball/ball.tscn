@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dstny4xn1ly4c" path="res://Ball/ball.gd" id="1_mkwqo"]
 [ext_resource type="Texture2D" uid="uid://clmsv15js7emf" path="res://Assets/balletest.png" id="2_65gad"]
+[ext_resource type="AudioStream" uid="uid://nkrqriguvhr2" path="res://Assets/sfx/ping-pong-hit.wav" id="3_ngrkv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4mkqk"]
 
@@ -16,3 +17,7 @@ texture_filter = 1
 position = Vector2(5.066395e-07, -1.7881393e-07)
 scale = Vector2(0.50000006, 0.49999997)
 texture = ExtResource("2_65gad")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1625729206]
+stream = ExtResource("3_ngrkv")
+volume_db = 1.49
