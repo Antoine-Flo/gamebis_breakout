@@ -6,9 +6,27 @@
 [ext_resource type="PackedScene" uid="uid://drusiy482ckj7" path="res://Ball/ball.tscn" id="3_7jktm"]
 [ext_resource type="Texture2D" uid="uid://c7ii4w5jh8dyc" path="res://Assets/fond.png" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://snclv5jun08d" path="res://Environment/Bricks.tscn" id="6_ryrav"]
+[ext_resource type="StyleBox" uid="uid://bjfuuc4eawyo7" path="res://UI/btn-normal.tres" id="7_j5wjh"]
+[ext_resource type="StyleBox" uid="uid://n7amklcrb005" path="res://UI/btn-pressed.tres" id="8_vef74"]
+[ext_resource type="StyleBox" uid="uid://dx4mh5oho3x0p" path="res://UI/btn-hover.tres" id="9_vef74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mkqk"]
 size = Vector2(1066, 67)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mkqk"]
+bg_color = Color(0.1118, 0.26, 0.24764997, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.40392157, 0.6862745, 0.18039216, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_ruj8d"]
+font_size = 43
 
 [node name="Game" type="Node2D" unique_id=579378250]
 script = ExtResource("1_fc0e3")
@@ -51,3 +69,119 @@ paddle = NodePath("../Paddle")
 [node name="Bricks" parent="." unique_id=10419791 instance=ExtResource("6_ryrav")]
 position = Vector2(24, 0)
 tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAABAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAIAAAAAAAAAAAANAAIAAAAAAAAAAAAMAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAA=")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=523456920]
+
+[node name="StartScreen" type="Control" parent="HUD" unique_id=909530472]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="HUD/StartScreen" unique_id=273419075]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/StartScreen" unique_id=1242126771]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -50.0
+offset_right = 61.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4mkqk")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/StartScreen/PanelContainer" unique_id=742249728]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/StartScreen/PanelContainer/MarginContainer" unique_id=983953911]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="HUD/StartScreen/PanelContainer/MarginContainer/VBoxContainer" unique_id=100903782]
+layout_mode = 2
+text = "Rocky the Ball Boa"
+label_settings = SubResource("LabelSettings_ruj8d")
+
+[node name="NewGameBtn" type="Button" parent="HUD/StartScreen/PanelContainer/MarginContainer/VBoxContainer" unique_id=1054049771]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("7_j5wjh")
+theme_override_styles/pressed = ExtResource("8_vef74")
+theme_override_styles/hover = ExtResource("9_vef74")
+text = "New Game"
+
+[node name="GameOverScreen" type="Control" parent="HUD" unique_id=359422848]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="HUD/GameOverScreen" unique_id=1777193063]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/GameOverScreen" unique_id=696122667]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -50.0
+offset_right = 61.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4mkqk")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/GameOverScreen/PanelContainer" unique_id=65676533]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/GameOverScreen/PanelContainer/MarginContainer" unique_id=26270701]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="HUD/GameOverScreen/PanelContainer/MarginContainer/VBoxContainer" unique_id=898798587]
+layout_mode = 2
+text = "You dead"
+label_settings = SubResource("LabelSettings_ruj8d")
+
+[node name="TryAgainBtn" type="Button" parent="HUD/GameOverScreen/PanelContainer/MarginContainer/VBoxContainer" unique_id=1305798483]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("7_j5wjh")
+theme_override_styles/pressed = ExtResource("8_vef74")
+theme_override_styles/hover = ExtResource("9_vef74")
+text = "New Game"
