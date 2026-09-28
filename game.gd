@@ -8,14 +8,23 @@ extends Node2D
 @onready var start_screen: Control = $HUD/StartScreen
 @onready var game_over_screen: Control = $HUD/GameOverScreen
 
+@onready var bricks: TileMapLayer = $Bricks
+
 var game_started = false
 var lifes = 3
+var tiles_position : PackedByteArray
 
 func _ready() -> void:
+	# Signals
 	death_zone.body_entered.connect(death)
 	new_game_btn.pressed.connect(start_game)
 	try_again_btn.pressed.connect(new_game)
+
+	# HUD
 	game_over_screen.hide()
+	start_screen.show()
+	
+	tiles_position = bricks.tile_map_data
 
 func _input(event: InputEvent) -> void:
 	if game_started and (event.is_action_pressed("ui_select") or event.is_action_pressed("click")):
@@ -37,6 +46,7 @@ func new_game() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	game_over_screen.hide()
 	lifes = 3
+	bricks.tile_map_data = tiles_position
 	game_started = true
 
 func gameover() -> void:

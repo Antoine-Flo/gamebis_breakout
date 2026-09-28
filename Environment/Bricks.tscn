@@ -20,4 +20,5 @@ custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_eow3j")
 
 [node name="Bricks" type="TileMapLayer" unique_id=10419791]
+texture_filter = 1
 tile_set = SubResource("TileSet_6snss")
