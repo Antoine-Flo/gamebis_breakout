@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://snclv5jun08d"]
 
 [ext_resource type="Texture2D" uid="uid://lc6myqxot671" path="res://Assets/Block_001.png" id="1_2rgnd"]
+[ext_resource type="Texture2D" uid="uid://us23ldil3k02" path="res://Assets/Block_002.png" id="2_leyyq"]
+[ext_resource type="Texture2D" uid="uid://bdorlgmnvw3r2" path="res://Assets/Block_003.png" id="3_xkwby"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eow3j"]
 texture = ExtResource("1_2rgnd")
@@ -8,6 +10,22 @@ texture_region_size = Vector2i(64, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -16, 32, -16, 32, 16, -32, 16)
 0:0/0/custom_data_0 = 1
+0:0/0/custom_data_1 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ifoxf"]
+texture = ExtResource("2_leyyq")
+texture_region_size = Vector2i(64, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -16, 32, -16, 32, 16, -32, 16)
+0:0/0/custom_data_0 = 3
+0:0/0/custom_data_1 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4qmyq"]
+texture = ExtResource("3_xkwby")
+texture_region_size = Vector2i(64, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -16, 32, -16, 32, 16, -32, 16)
+0:0/0/custom_data_0 = 2
 0:0/0/custom_data_1 = true
 
 [sub_resource type="TileSet" id="TileSet_6snss"]
@@ -18,6 +36,8 @@ custom_data_layer_0/type = 2
 custom_data_layer_1/name = "Breakable"
 custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_eow3j")
+sources/1 = SubResource("TileSetAtlasSource_ifoxf")
+sources/2 = SubResource("TileSetAtlasSource_4qmyq")
 
 [node name="Bricks" type="TileMapLayer" unique_id=10419791]
 texture_filter = 1
