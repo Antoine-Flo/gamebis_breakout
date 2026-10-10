@@ -24,16 +24,14 @@ func _physics_process(delta: float) -> void:
 			var cell = tilemap.local_to_map(tilemap.to_local(position_collision))
 			var cellTileData = tilemap.get_cell_tile_data(cell)
 			var cellLife = cellTileData.get_custom_data("Life")
-			print("before : ",cellLife)
 			cellLife = cellLife - 1
-			print("after : ",cellLife)
 			if(cellLife <=0): 
 				tilemap.erase_cell(cell)
 			else:
 				if(cellLife == 2):
-					tilemap.set_cell(cell,2)
+					tilemap.set_cell(cell, 2, Vector2i(0, 0))
 				elif(cellLife == 1):
-					tilemap.set_cell(cell,0)
+					tilemap.set_cell(cell, 0, Vector2i(0, 0))
 				
 				
 		if collider.name == "Paddle":
