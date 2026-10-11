@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
+signal endgame
 var ball_speed = 700
 var stick_to_paddle = true
 const offset =  Vector2(0, -30)
@@ -32,6 +33,8 @@ func _physics_process(delta: float) -> void:
 					tilemap.set_cell(cell, 2, Vector2i(0, 0))
 				elif(cellLife == 1):
 					tilemap.set_cell(cell, 0, Vector2i(0, 0))
+			if collider.get_used_cells().size() == 0:
+				endgame.emit()
 				
 				
 		if collider.name == "Paddle":
